@@ -2,9 +2,10 @@ const axios = require('axios');
 
 const  {Country}  = require('../db');
 
+
 const getApiData = async () => {
   try {
-    const response = await axios.get("http://localhost:3001/countries");
+    const response = await axios.get("http://localhost:5000/countries");
 
     const array = response.data.map((country) => ({
       id: country.cca3,
@@ -16,8 +17,12 @@ const getApiData = async () => {
       area: country.area,
       population: country.population,
     }));
-
-    return array;
+    try {
+      await Country.bulkCreate(array);
+    } catch (error) {
+         
+    }
+     return array;
   } catch (error) {
     console.error("Error al obtener los datos de la API:", error);
     throw error;

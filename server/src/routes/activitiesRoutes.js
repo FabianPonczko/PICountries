@@ -5,6 +5,6 @@ const { getActivities , postActivities } = require('../handlers/activitiesHandle
 
 activitiesRoutes.post("/", postActivities );
 
-activitiesRoutes.get("/", getActivities );
+activitiesRoutes.get("/name", getActivities );
 
  module.exports = activitiesRoutes;
