@@ -1,7 +1,6 @@
-const axios = require('axios');
+const axios = require("axios");
 
-const  {Country}  = require('../db');
-
+const { Country } = require("../db");
 
 const getApiData = async () => {
   try {
@@ -12,16 +11,18 @@ const getApiData = async () => {
       name: country.name.common,
       image: country.flags.png,
       continents: country.continents[0],
-      capital: country.capital ? country.capital[0] : "El país no tiene capital",
-      subregion: country.subregion ? country.subregion : "El país no tiene subregión",
+      capital: country.capital
+        ? country.capital[0]
+        : "El país no tiene capital",
+      subregion: country.subregion
+        ? country.subregion
+        : "El país no tiene subregión",
       area: country.area,
       population: country.population,
     }));
     try {
       await Country.bulkCreate(array);
-    } catch (error) {
-         
-    }
+    } catch (error) {}
     //  return array;
   } catch (error) {
     console.error("Error al obtener los datos de la API:", error);
@@ -47,12 +48,10 @@ module.exports = getApiData;
 //         area: country.area,
 //         population: country.population,
 //       });
-     
+
 //     });
 //     console.log(array);
 //     return array;
 //   };
 
-
 // module.exports = getApiData;
-
