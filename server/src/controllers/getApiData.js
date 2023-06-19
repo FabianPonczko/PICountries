@@ -22,7 +22,7 @@ const getApiData = async () => {
     } catch (error) {
          
     }
-     return array;
+    //  return array;
   } catch (error) {
     console.error("Error al obtener los datos de la API:", error);
     throw error;

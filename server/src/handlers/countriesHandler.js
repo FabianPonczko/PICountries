@@ -1,6 +1,5 @@
 const { Op } = require("sequelize");
 const { Country, Activity } = require("../db");
-const getApiData = require("../controllers/getApiData");
 
 const getCountriesHandler = async (req, res) => {
   const { id }  = req.params;
